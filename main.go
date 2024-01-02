@@ -5,7 +5,6 @@ import (
 
 	"github.com/Deepanshu-Sharma-18/jwt-auth/controllers"
 	"github.com/Deepanshu-Sharma-18/jwt-auth/initializers"
-	"github.com/Deepanshu-Sharma-18/jwt-auth/middleware"
 	"github.com/gin-gonic/gin"
 )
 
@@ -26,7 +25,7 @@ func main() {
 
 	r.POST("/signup", controllers.Signup)
 	r.POST("/login", controllers.Login)
-	r.POST("/authenticate", middleware.Authenticate)
+	r.POST("/authenticate", controllers.Authenticate)
 	r.Run()
 
 }
