@@ -3,6 +3,7 @@ package initializers
 import (
 	"context"
 	"fmt"
+	"os"
 	"time"
 
 	"go.mongodb.org/mongo-driver/bson"
@@ -14,7 +15,7 @@ import (
 var Collection *mongo.Collection
 
 func ConnectDB() *mongo.Collection {
-	var mongoUri = "mongodb+srv://deepanshursharma:DeepanshuSharma@cluster0.kx1q7pa.mongodb.net/?retryWrites=true&w=majority"
+	var mongoUri = os.Getenv("MONGO_URI")
 
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
